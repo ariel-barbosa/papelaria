@@ -6,8 +6,10 @@
   </head>
   <body>
    Cadastro de livros
-   <form method=POST>
+   <form method="POST">
+        {% csrf_token %}
         {{ form.as_p }}
    </form>
+
   </body>
 </html>
