@@ -24,3 +24,11 @@ class ControleEstoque(models.Model):
     data_entrada_livro = models.DateField()
     data_saida_livro = models.DateField()
     cadastro_livros = models.ForeignKey(CadastroLivros, models.DO_NOTHING)
+
+class LivrosAutores(models.Model):
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+
+    # Definir uma chave primária composta
+    class Meta:
+        unique_together = ('autor', 'livro') 
