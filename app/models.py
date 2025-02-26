@@ -5,10 +5,10 @@ class CadastroLivros(models.Model):
     isbn = models.CharField(max_length=13)
     edicao = models.CharField(max_length=255)
     editora = models.CharField(max_length=255)
-    ano_publicacao = models.TextField()  
+    ano_publicacao = models.TextField(max_length=4)  
     preco_capa = models.FloatField()
     categoria = models.CharField(max_length=255)
-    autores = models.CharField(max_length=255)
+    autores = models.ManyToManyField(Autor, related_name='livros')  # Relacionamento muitos para muitos
 
 class CadastroAutores(models.Model):
     

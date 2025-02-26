@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>CADASTRO</title>
+    <title>CADASTRO DE AUTORES</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,6 +44,7 @@
         }
 
         .form-container input, 
+        .form-container select,
         .form-container button {
             padding: 12px;
             font-size: 16px;
@@ -51,7 +52,8 @@
             border: 1px solid #bdc3c7;
         }
 
-        .form-container input {
+        .form-container input, 
+        .form-container select {
             background-color: #ecf0f1;
         }
 
@@ -80,21 +82,20 @@
 </head>
 <body>
 
-    
-
     <header>
-        <h1>Cadastro de Livros</h1>
-        <p>Preencha os dados abaixo para cadastrar um novo livro.</p>
+        <h1>Cadastro de Autores</h1>
+        <p>Preencha os dados abaixo para cadastrar um novo autor.</p>
     </header>
 
     <div class="links">
         <a href="{% url 'home' %}">voltar ao inicio...</a>
     </div>
+    
     <div class="form-container">
         <h2>Formulário de Cadastro</h2>
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_p }}  <!-- O Django renderiza automaticamente os campos do formulário -->
             <button type="submit">Cadastrar</button>
         </form>
     </div>
@@ -103,7 +104,7 @@
     <footer>
         <p>&copy; 2025 Livraria PAPELARIA. Todos os direitos reservados.</p>
     </footer>
-    
 
 </body>
 </html>
+
